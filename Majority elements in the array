@@ -1,1 +1,72 @@
+QUESTION:
+ARRAY=[1,2,3,4,5,1,1,1];
+To find the Majority elements in the array that is the frequency of the element in the Array is > (ARRAY.LENGTH/2),return the element;
+Brute force Approach:
+        * Create Two Integer list called List1 and List2,
+        * List1 contains all the elements in the array and List2 contains only the  disinct element in the array.
+        * List1=[1,2,3,4,5,1,1,1];
+        * List2=[1,2,3,4,5];
+        *With the help of inbulit function called (Collections.frequency) to find the frequency of the element if it is Majority element ,return the element:
 
+Code:
+        import java.util.*;
+        class Main{
+              public static void main(String args){
+                    Scanner sc=new Scanner(System.in);
+                    int arr[]={1,2,3,4,5,1,1,1};
+                    List<Integer> list1=new ArrayList<>();
+                    List<Integer> list2=new ArrayList<>();
+                   for(int i=0;i<arr.length;i++){
+                      list1.add(arr[i])
+                      }
+                    for(int i=0;i<arr.length;i++){
+                        if(!list2.contains){
+                            list2.add(arr[i])
+                         }  }
+                        int h=arr.length/2;
+                   for(int i=0;i<list2.size();i++){
+                       int n=Collections.frequency(list1,list2.get(i));
+                         if(n>h){
+                            System.out.print(list2.get(i));
+                          } }
+
+Time complexity: O(n^2);
+Space complexity:O(n);
+
+OPTIMIZE APPROACH:
+              We need solve this problem with the help of MOORE'S VOTING ALGORITHM.
+    MOORE'S VOTING ALGORITHM:
+                   initialize count=0;
+                   first declare a integer variable called A ,if count==0, Store the arr[i] in that variable,and access the Array if arr[i]==A count++,else count--,end of the loop A must store some value,
+                   Access the loop if(A==arr[i]) count1++,if(count1)>h,return A else return 0;
+CODE:
+                    import java.util.*;
+                    class Main{
+                    public static void main(String args){
+                    Scanner sc=new Scanner(System.in);
+                    int arr[]={1,2,3,4,5,1,1,1};
+                    int count=0;
+                    int A=0;
+                    for(int i=0;i<arr.length;i++){
+                    if(count==0){
+                      A=arr[i];
+                      count++;  }
+                    else  if(A==arr[i)){
+                      count++;}
+                    else{
+                       count--;} }
+                   int count1=0;
+                   int H=arr.length/2;  
+                  for(int i=0;i<arr.length;i++){
+                    if(A==arr[i]){
+                      count1++; } }
+                  if(count1>H){
+                    System.out.print(a);}
+}}
+Time complexity: O(n);
+Space complexity:O(1);
+   
+
+
+
+                    
